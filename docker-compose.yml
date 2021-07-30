@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+    app:
+        build: app/.
+        ports:
+            - 5000:5000
+    
+    mongo:
+        image: mongo
+        ports:
+            - 27017:27017
+    
+    mongo-ui:
+        image: mongo-express
+        ports:
+            - "8080:8081"
+        environment: 
+            - ME_CONFIG_SERVER=mongo
+            
